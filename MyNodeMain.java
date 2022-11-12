@@ -6,9 +6,9 @@ public class MyNodeMain {
         MyNode<Integer> thirdNode = new MyNode(56);
 
         LinkedList linkedList = new LinkedList();
-        linkedList.add(firstNode);
-        linkedList.add(secondNode);
-        linkedList.add(thirdNode);
+        linkedList.append(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
         linkedList.printNodes();
 
     }

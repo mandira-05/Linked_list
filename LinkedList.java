@@ -20,6 +20,19 @@ public class LinkedList {
         }
     }
 
+    public void append(INode newNode) {
+        if (tail == null) {
+            this.tail = newNode;
+        }
+        if (head == null) {
+            this.head = newNode;
+        }
+        else {
+            newNode.setNext(head);
+            head = newNode;
+        }
+    }
+
     public void printNodes() {
         INode tempNode = head;
         while(tempNode!=null) {
