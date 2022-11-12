@@ -25,7 +25,4 @@ public class MyNode <K> implements INode<K> {
         this.next = next;
     }
 
-
-
-
 }
