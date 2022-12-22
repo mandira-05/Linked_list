@@ -11,5 +11,8 @@ public class MyNodeMain {
         linkedList.insert(firstNode, secondNode);
         linkedList.printNodes();
 
+        INode node = linkedList.pop();
+        System.out.println(node.getKey()+" Popped");
+        linkedList.printNodes();
     }
 }
