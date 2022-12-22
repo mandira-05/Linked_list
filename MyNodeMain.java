@@ -1,18 +1,19 @@
 public class MyNodeMain {
     public static void main(String[] args) {
 
-        MyNode<Integer> firstNode = new MyNode(70);
-        MyNode<Integer> secondNode = new MyNode(30);
-        MyNode<Integer> thirdNode = new MyNode(56);
+        MyNode<Integer> firstNode = new MyNode<Integer>(56);
+        MyNode<Integer> secondNode = new MyNode<Integer>(30);
+        MyNode<Integer> thirdNode = new MyNode<Integer>(70);
+        LinkedList myLinkedList = new LinkedList();
+        myLinkedList.add(firstNode);
+        myLinkedList.append(thirdNode);
+        myLinkedList.insert(firstNode, secondNode);
 
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(firstNode);
-        linkedList.append(thirdNode);
-        linkedList.insert(firstNode, secondNode);
-        linkedList.printNodes();
+        System.out.println("Linked list before deletion: ");
+        myLinkedList.printLinkedList();
+        INode deletedNode = myLinkedList.deleteLastNode();
+        System.out.println("The deleted key value is:"+deletedNode.getKey());
 
-        INode node = linkedList.pop();
-        System.out.println(node.getKey()+" Popped");
-        linkedList.printNodes();
+
     }
 }

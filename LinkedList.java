@@ -1,58 +1,69 @@
 public class LinkedList {
+
     private INode head;
     private INode tail;
 
     public LinkedList() {
+
         this.head = null;
         this.tail = null;
     }
 
     public void add(INode newNode) {
-        if (tail == null) {
+        if(this.tail == null) {
             this.tail = newNode;
         }
-        if (head == null) {
+        if(this.head == null) {
             this.head = newNode;
         }
         else {
-            newNode.setNext(head);
-            head = newNode;
+            INode temporarayNode = this.head;
+            this.head = newNode;
+            this.head.setNext(temporarayNode);
+
         }
+
     }
 
-    public void append(INode newNode) {
-        if (tail == null) {
+    public void append (INode newNode) {
+        if(this.tail == null) {
             this.tail = newNode;
         }
-        if (head == null) {
+        if(this.head == null) {
             this.head = newNode;
         }
         else {
-            newNode.setNext(head);
-            head = newNode;
+            INode tempINode = this.tail;
+            this.tail.setNext(newNode);
+            this.tail = newNode;
         }
     }
 
-    public void insert(INode myNode, INode newNode) {
-        INode tempNode = myNode.getNext();
-        myNode.setNext(newNode);
-        newNode.setNext(tempNode);
+    public void insert(INode previousNode, INode newNode) {
+        INode temporaryNode = previousNode.getNext();
+        previousNode.setNext(newNode);
+        newNode.setNext(temporaryNode);
     }
 
-    public INode pop() {
-        INode tempNode = this.head;
+    public INode deleteFirst() {
+        INode temporaryNode = this.head;
         this.head = this.head.getNext();
-        return tempNode;
+        return temporaryNode;
+
     }
 
-
-    public void printNodes() {
-        INode tempNode = head;
-        while(tempNode!=null) {
-            System.out.print(tempNode.getKey()+"->");
-            tempNode = tempNode.getNext();
+    public INode deleteLastNode() {
+        INode temporaryNode = head;
+        while(!temporaryNode.getNext().equals(tail)) {
+            temporaryNode = temporaryNode.getNext();
         }
-        System.out.println("null");
+        this.tail = temporaryNode;
+        temporaryNode = temporaryNode.getNext();
+        return temporaryNode;
+    }
+
+    public void printLinkedList () {
+        System.out.println("My Nodes: "+head);
     }
 
 }
